@@ -36,7 +36,13 @@ if [ ! -d "$project_dir" ]; then
 fi
 
 if [ ! -f "$project_dir/$root_file.java" ]; then
-    touch "$project_dir/$root_file.java"
+    echo "public class $root_file
+{
+    public static void main(String[] args)
+    {
+        System.out.println(\"This is from \'$root_file\'. It looks ugly! CHANGE IT IMEDIATELLY!\");
+    }
+}" > "$project_dir/$root_file.java"
 fi
 
 # Check if the .projectStats file exists, if not, create it
