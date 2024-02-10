@@ -30,6 +30,15 @@ fi
 #     fi
 # done
 
+if [ ! -d "$project_dir" ]; then
+    echo "Creating the '$project_dir' directory..."
+    mkdir -p "$project_dir"
+fi
+
+if [ ! -f "$project_dir/$root_file.java" ]; then
+    touch "$project_dir/$root_file.java"
+fi
+
 # Check if the .projectStats file exists, if not, create it
 if [ ! -f "$project_dir/.projectStats" ]; then
     touch "$project_dir/.projectStats"
